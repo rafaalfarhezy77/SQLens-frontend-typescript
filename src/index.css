@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-neo-white: #FFFFFF;
+  --color-neo-bg: #F7F7F2;
+  --color-neo-yellow: #FFD600;
+  --color-neo-yellow-light: #FFF3A3;
+  --color-neo-dark: #111111;
+  --color-neo-border: #111111;
+  --color-neo-shadow: #111111;
+  --color-neo-muted: #71717A;
+  --color-neo-danger: #EF4444;
+  --color-neo-success: #10B981;
+}
+
+/* Custom Neo-Brutalist Utilities */
+.shadow-neo-sm {
+  box-shadow: 2px 2px 0px #111111;
+}
+
+.shadow-neo {
+  box-shadow: 4px 4px 0px #111111;
+}
+
+.shadow-neo-lg {
+  box-shadow: 6px 6px 0px #111111;
+}
+
+.shadow-neo-xl {
+  box-shadow: 8px 8px 0px #111111;
+}
+
+/* Tactile Button Press Behavior */
+.pressable-neo {
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.pressable-neo:hover:not(:disabled) {
+  transform: translate(1px, 1px);
+  box-shadow: 3px 3px 0px #111111;
+}
+
+.pressable-neo:active:not(:disabled) {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px #111111;
+}
