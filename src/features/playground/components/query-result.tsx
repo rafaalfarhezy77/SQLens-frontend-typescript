@@ -99,15 +99,21 @@ export function QueryResult({
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#111111]/20">
-                  {result.rows.map((row, rowIndex) => (
-                    <tr
-                      key={rowIndex}
-                      className={
-                        rowIndex % 2 === 0
-                          ? "bg-[#FFFFFF] hover:bg-[#FFF3A3]/40"
-                          : "bg-[#F7F7F2] hover:bg-[#FFF3A3]/40"
-                      }
-                    >
+                  {result.rows.map((row, rowIndex) => {
+                    const rowKey =
+                      row["id"] !== undefined && row["id"] !== null
+                        ? `row-id-${String(row["id"])}`
+                        : `row-${rowIndex}`
+
+                    return (
+                      <tr
+                        key={rowKey}
+                        className={
+                          rowIndex % 2 === 0
+                            ? "bg-[#FFFFFF] hover:bg-[#FFF3A3]/40"
+                            : "bg-[#F7F7F2] hover:bg-[#FFF3A3]/40"
+                        }
+                      >
                       <td className="p-2.5 text-center font-bold text-zinc-400 border-r border-[#111111]/20 text-[11px]">
                         {rowIndex + 1}
                       </td>
@@ -135,7 +141,8 @@ export function QueryResult({
                         )
                       })}
                     </tr>
-                  ))}
+                    )
+                  })}
                 </tbody>
               </table>
             </div>

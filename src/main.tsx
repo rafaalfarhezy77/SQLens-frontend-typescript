@@ -2,6 +2,10 @@ import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
 import "./index.css"
 import App from "./App"
+import { setupMockFetch } from "./lib/mock-api/mock-fetch"
+
+// Initialize client-side native Fetch API mock router
+setupMockFetch()
 
 const rootElement = document.getElementById("root")
 

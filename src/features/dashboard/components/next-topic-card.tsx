@@ -12,11 +12,23 @@ interface NextTopicCardProps {
 export function NextTopicCard({ nextTopic }: NextTopicCardProps) {
   const [isSimulating, setIsSimulating] = React.useState<boolean>(false)
   const [feedbackMessage, setFeedbackMessage] = React.useState<string | null>(null)
+  const timerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  React.useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current)
+      }
+    }
+  }, [])
 
   const handleContinue = () => {
     setIsSimulating(true)
     setFeedbackMessage("Memuat modul pembelajaran... (Modul interaktif lengkap ada pada Page 3)")
-    setTimeout(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current)
+    }
+    timerRef.current = setTimeout(() => {
       setIsSimulating(false)
     }, 1500)
   }
